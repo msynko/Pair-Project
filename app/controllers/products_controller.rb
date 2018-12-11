@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     @product.description = params[:product][:description]
     @product.price_in_cents = params[:product][:price_in_cents]
     if  @product.save
-        redirect_to products_path notice: "You have created a new product!"
+        redirect_to products_path, notice: "You have created a new product!"
       else
         render :new
     end
@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
     @product.price_in_cents = params[:product][:price_in_cents]
 
     if @product.save
-      redirect_to "/products/#{@product.id}"
+      redirect_to products_path(@product), notice: "Product has been updated."
     else
       render :edit
     end
@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to "/products"
+    redirect_to "/products", notice: "Product has been deleted."
   end
 
 end
