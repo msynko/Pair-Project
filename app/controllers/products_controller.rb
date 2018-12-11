@@ -20,7 +20,7 @@ class ProductsController < ApplicationController
     @product.description = params[:product][:description]
     @product.price_in_cents = params[:product][:price_in_cents]
     if  @product.save
-        redirect_to products_path
+        redirect_to products_path notice: "You have created a new product!"
       else
         render :new
     end
