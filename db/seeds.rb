@@ -12,10 +12,10 @@ jacket = Product.create!(name:"North Face", description:"The Nuptse jacket, orig
 
 bag = Product.create!(name:"Black GG Marmont Belt Bag", description: "'Chevron' quilted leather three-compartment belt bag featuring assorted pouches in black. Adjustable and detachable belt-style strap with pin-buckle fastening. Logo hardware at faces.", price_in_cents: 100000)
 
-review1 = Review.create!(product_id: 1, comment: "Awesome!")
+review1 = Review.create!(product_id: shoes.id, comment: "Awesome!")
 
-review2 = Review.create!(product_id: 2, comment: "Super cool and warm!")
+review2 = Review.create!(product_id: jacket.id, comment: "Super cool and warm!")
 
-review3 = Review.create!(product_id: 3, comment: "gucci gang 4 lyfe")
+review3 = Review.create!(product_id: bag.id, comment: "gucci gang 4 lyfe")
 
-review4 = Review.create!(product_id: 2, comment: "The coziest of team cozy")
+review4 = Review.create!(product_id: jacket.id, comment: "The coziest of team cozy")

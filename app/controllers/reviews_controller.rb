@@ -1,39 +1,36 @@
 class ReviewsController < ApplicationController
 
   def create
-    @review = Product.new
-    @review.name = params[:review][:name]
-    @review.description = params[:review][:description]
-    @review.price_in_cents = params[:review][:price_in_cents]
-    if  @review.save
-        redirect_to reviews_path, notice: "You have created a new review!"
-      else
-        render :new
+    @review = Review.new
+    @review.comment = params[:review][:comment]
+
+    if @review.save
+      redirect_to product_path, notice: "You have created a new review!"
+    else
+      render :new
     end
   end
 
   def edit
-    @review = Product.find(params[:id])
+    @review = Review.find(params[:id])
   end
 
   def update
-    @review = Product.find(params[:id])
+    @review = Review.find(params[:id])
 
-    @review.name = params[:review][:name]
-    @review.description = params[:review][:description]
-    @review.price_in_cents = params[:review][:price_in_cents]
+    @review.comment = params[:review][:comment]
 
     if @review.save
-      redirect_to reviews_path(@review), notice: "Product has been updated."
+      redirect_to product_path(@product), notice: "Review has been updated."
     else
       render :edit
     end
   end
 
   def destroy
-    @review = Product.find(params[:id])
+    @review = Review.find(params[:id])
     @review.destroy
-    redirect_to "/reviews", notice: "Product has been deleted."
+    redirect_to product_path, notice: "Review has been deleted."
   end
 
 end

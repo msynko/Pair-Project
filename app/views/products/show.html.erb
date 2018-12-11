@@ -1,6 +1,13 @@
-<h1><%=@product.name %> </h1>
-<h2><%=@product.price_in_dollars%></h2>
+<h1><%= @product.name %> </h1>
+<h2><%= @product.price_in_dollars %></h2>
 
-<p><%=@product.description%></p>
+<p><%= @product.description %></p>
 
 <%= link_to 'Edit', edit_product_path %> | <%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure you want to delete this product?"} %>
+
+<h3>Reviews</h3>
+<ul>
+  <% @reviews.each do |review| %>
+    <li>"<%= review.comment %>" Posted at: <%= review.created_at %></li>
+  <% end %>
+</ul>
