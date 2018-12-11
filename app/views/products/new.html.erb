@@ -2,4 +2,12 @@
 
 <%= link_to 'Show all products', products_path %>
 
+<% if @product.errors.any? %>
+  <div>
+    <% @product.errors.full_messages.each do |message| %>
+    <p> <%= message %> </p>
+    <% end %>
+  </div>
+<% end %>
+
 <%= render 'entry_form', product: @product %>
