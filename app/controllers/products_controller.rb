@@ -1,21 +1,31 @@
 class ProductsController < ApplicationController
-def index
-end
 
-def show
-end
+  def index
 
-def new
-end
+  end
 
-def create
-end
+  def show
 
-def edit
-end
+  end
 
-def update
-end
- 
-def delete
+  def new
+
+  end
+
+  def create
+
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def delete
+
+  end
+
 end
